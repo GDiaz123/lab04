@@ -1,4 +1,7 @@
- package com.example.lab04
+import androidx.compose.material3.Snackbar
+import androidx.compose.material3.TextButton
+
+|package com.example.lab04
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,6 +32,27 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+ @Composable
+ fun SnackbarExample() {
+     Snackbar(
+         action = {
+             TextButton(onClick = { /* Acción al presionar */ }) {
+                 Text("presionar")
+             }
+         }
+     ) {
+         Text("Objeto borrado")
+     }
+ }
+w
+ @Preview(showBackground = true)
+ @Composable
+ fun PreviewSnackbarExample() {
+     SnackbarExample()
+ }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
