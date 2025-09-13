@@ -69,20 +69,34 @@ fun LazyRowExample() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(12.dp) // más espacio entre ítems
     ) {
         items(5) { index ->
             Card(
-                modifier = Modifier.size(100.dp, 80.dp),
-                elevation = CardDefaults.cardElevation(4.dp)
+                modifier = Modifier
+                    .size(120.dp, 100.dp), // un poco más grande
+                shape = RoundedCornerShape(16.dp), // esquinas redondeadas
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFBBDEFB) // azul claro
+                )
             ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Text(text = "Item $index")
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Text(
+                        text = "Item $index",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF0D47A1) // azul oscuro
+                    )
                 }
             }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
